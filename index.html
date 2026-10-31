@@ -54,6 +54,122 @@ body{background:radial-gradient(ellipse at 72% -15%,#1c3858 0,transparent 38%),v
 @media(max-width:850px){.main{width:calc(100% - 68px)}.overview-hero{grid-template-columns:1fr}.hero-side{border-left:0;border-top:1px solid #ffffff1c;padding:13px 0 0}.overview-insights{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.main{width:100%;padding:14px 10px 32px}.side{position:sticky;top:0;width:100%;height:auto;inset:auto;display:flex;flex-direction:row;align-items:center;padding:8px 10px;overflow-x:auto}.brand{padding:0 10px 0 2px;flex-shrink:0}.brand .mark{width:34px;height:34px;font-size:19px}.brandtext b{font-size:11px}.brandtext small{font-size:7px}.navlabel,.sidefoot{display:none}.side .navitem{white-space:nowrap;margin:0 2px;padding:9px 10px;font-size:10px}.side .navitem i{font-size:13px;margin-right:5px}.side .navitem span{display:inline}.overview-hero{padding:17px}.overview-insights{grid-template-columns:1fr}.top{margin-bottom:14px}}
 
+
+/* Responsive refinement: wide desktop, compact laptop, tablet and phones */
+html,body{width:100%;min-height:100%;overflow-x:hidden}
+body{min-width:320px}
+.main{min-width:0}
+.page,.panel,.kpi,.overview-hero,.signal-card{min-width:0}
+.row{--bs-gutter-x:1rem}
+[class*="col-"]{min-width:0}
+.panel{overflow:hidden}
+.chart{width:100%;min-width:0}
+.chart canvas{display:block;width:100%!important;max-width:100%!important}
+.table-responsive{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.table{white-space:nowrap}
+
+/* Large screens */
+@media(min-width:1440px){
+  .main{padding-left:clamp(30px,3vw,56px);padding-right:clamp(30px,3vw,56px)}
+  .overview-hero{padding:30px 34px;gap:32px}
+  .panel{padding:20px}
+  .chart{height:290px}
+  .chart.tall{height:360px}
+}
+
+/* Small laptops and tablets: compact icon rail, content uses remaining width */
+@media(min-width:561px) and (max-width:1100px){
+  .side{width:72px;padding:16px 8px}
+  .brand{justify-content:center;padding:5px 0 22px}
+  .brandtext,.navlabel,.navitem span,.sidefoot{display:none}
+  .navitem{text-align:center;padding:13px 4px}
+  .navitem i{margin:0;font-size:18px}
+  .main{margin-left:72px;width:calc(100% - 72px);padding:22px clamp(14px,2vw,24px) 38px}
+  .overview-hero{grid-template-columns:minmax(0,1.4fr) minmax(170px,.6fr);padding:20px;gap:16px}
+  .hero-side{padding-left:16px}
+  .kval{font-size:clamp(19px,2.3vw,25px)}
+  .chart{height:240px}
+  .chart.tall{height:290px}
+}
+
+/* Phones */
+@media(max-width:560px){
+  html,body{overflow-x:hidden}
+  .side{position:sticky;top:0;left:0;right:0;width:100%;height:auto;min-height:58px;z-index:20;gap:5px;padding:7px 9px;box-shadow:0 8px 24px #0005;scrollbar-width:thin}
+  .brand{position:sticky;left:0;z-index:2;background:#0d1728;padding:0 9px 0 1px;margin-right:3px}
+  .brandtext{display:block;white-space:nowrap}
+  .brandtext b{font-size:10px;letter-spacing:1px}
+  .brandtext small{font-size:6px;letter-spacing:1px}
+  .brand .mark{height:32px;width:32px;border-radius:10px;font-size:17px}
+  .side .navitem{flex:0 0 auto;display:flex;align-items:center;white-space:nowrap;margin:0 1px;padding:9px 10px;border-radius:9px;font-size:9px}
+  .side .navitem span{display:inline}
+  .side .navitem i{font-size:12px;margin:0 5px 0 0}
+  .main{margin:0;width:100%;max-width:none;padding:13px 10px 28px}
+  .top{gap:9px;padding-bottom:12px;align-items:flex-start}
+  .top>div:first-child{min-width:0}
+  .eyebrow{font-size:8px;letter-spacing:1.2px}
+  .title{font-size:clamp(20px,6vw,25px);line-height:1.15;letter-spacing:-.6px;overflow-wrap:anywhere}
+  .sub{font-size:10px;line-height:1.45}
+  .top .pill{font-size:8px;padding:6px 8px;white-space:nowrap}
+  .overview-hero{grid-template-columns:minmax(0,1fr);gap:14px;padding:16px 14px;border-radius:13px}
+  .hero-title{font-size:19px;line-height:1.3}
+  .hero-desc{font-size:10px;line-height:1.65}
+  .hero-side{border-left:0;border-top:1px solid #ffffff1c;padding:12px 0 0}
+  .hero-rate{font-size:28px}
+  .data-ribbon{gap:5px}
+  .data-ribbon span{font-size:8px;padding:5px 7px}
+  .overview-toolbar{align-items:flex-start;flex-direction:column;gap:4px;margin:14px 0 9px}
+  .overview-insights{grid-template-columns:minmax(0,1fr);gap:8px}
+  .signal-card{min-height:0;padding:12px}
+  .row{--bs-gutter-x:.65rem;--bs-gutter-y:.65rem}
+  .kpi{min-height:94px;padding:12px;border-radius:11px}
+  .klabel{font-size:9px;line-height:1.35;padding-right:12px}
+  .kval{font-size:clamp(18px,5.4vw,23px);margin-top:8px;overflow-wrap:anywhere}
+  .kfoot{font-size:9px;line-height:1.35}
+  .ki{right:10px;bottom:10px;font-size:16px}
+  .panel{padding:12px;margin-bottom:10px;border-radius:11px}
+  .ptitle{font-size:12px;line-height:1.4}
+  .psub{font-size:9px;line-height:1.5}
+  .chart{height:215px}
+  .chart.tall{height:255px}
+  .section h2{font-size:16px}
+  .section p{font-size:10px;line-height:1.5}
+  .section-kicker{margin:16px 0 8px}
+  .filters{gap:6px}
+  .filters select{min-width:0;max-width:100%;flex:1 1 135px}
+  .upload{align-items:flex-start;flex-direction:column}
+  .table{font-size:10px}
+  .table th,.table td{padding:.45rem .5rem}
+  .note{font-size:10px;padding:10px;line-height:1.55}
+  .foot{font-size:9px;padding:12px 4px}
+}
+
+/* Very narrow phones */
+@media(max-width:380px){
+  .brandtext{display:none}
+  .brand{padding-right:5px}
+  .side .navitem{padding:9px 8px;font-size:8px}
+  .side .navitem i{margin-right:4px}
+  .main{padding-left:8px;padding-right:8px}
+  .overview-hero{padding:13px 11px}
+  .hero-title{font-size:17px}
+  .kpi{padding:10px;min-height:88px}
+  .kval{font-size:18px}
+  .chart{height:195px}
+  .chart.tall{height:230px}
+}
+
+/* Landscape phones: keep navigation compact and give charts more room */
+@media(max-height:520px) and (min-width:561px) and (max-width:950px){
+  .side{padding-top:8px;padding-bottom:8px}
+  .brand{padding-bottom:10px}
+  .navitem{padding:8px 4px;margin:1px 0}
+  .main{padding-top:14px}
+  .chart{height:210px}
+  .chart.tall{height:245px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
 </style></head><body>
 <aside class="side"><div class="brand"><div class="mark">L</div><div class="brandtext"><b>LOGIC LOOM</b><small>FRAUD INTELLIGENCE</small></div></div>
 <div class="navlabel">WORKSPACE</div>
